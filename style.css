@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+h1 {
+  font-size: 25px;
+  background: linear-gradient(to right, #40c2ff, #a7e3ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+
+
+body {
+  background: linear-gradient(180deg, #080d18, #110074);
+  color: white;
+  font-family: monospace;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+
+
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+
+
+
+/* CARD */
+.card {
+  background: #111827;
+  border: 1px solid #ffffff14;
+  border-radius: 10px;
+  padding: 20px;
+  transition: 0.2s ease;
+
+  min-height: 130px;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #00fff2;
+  box-shadow: 0 6px 18px rgba(0, 255, 157, 0.08);
+}
+
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 1rem;
+}
+
+.card p {
+  color: white;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+
+.card-links {
+  display: flex;
+  gap: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.btn {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border: 1px solid aqua;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #7dd3fc;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: rgba(0, 255, 157, 0.08);
+  border-color: aqua;
+  color: white;
+}
