@@ -14,12 +14,16 @@ body {
   justify-content: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 15px;
-  margin-bottom: 42px;
+  margin-bottom: 60px;
   border-bottom: 1px solid #4A5568; /* rgba(255, 255, 255, 0.2) #515c6e */
 }
 
@@ -43,10 +47,12 @@ header h1 {
   font-size: 30px;
   font-weight: 900;
   margin-bottom: 12px;
+  margin-left: 13px;
+  margin-top: 60px
 }
 
 
-/* GRID */
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -54,7 +60,7 @@ header h1 {
 }
 
 
-/* CARD */
+/* Karten */
 .card {
   background: #F8F9FA; /* 2a3447 mit hellerem hintergrund auch nice*/
   color: #ffffff;
@@ -113,5 +119,109 @@ header h1 {
 
 
 
+/* XXXXXXXXXX NUMBER GENERATOR CSS XXXXXXXXXX */
+
+/* Die helle, stabile Haupt-Box */
+.generator-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 100px;
+  padding: 40px 30px;
+  background: #F8F9FA;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px #00000026;
+}
+
+.generator-box h2 {
+  font-size: 22px;
+  color: #444e69;
+  font-weight: 720;
+  margin-bottom: 25px;
+}
+
+/* die Random Zahl in der mitte */
+.zahl-display {
+  font-size: 110px;
+  font-weight: 800;
+  color: #444e69;
+  line-height: 1;
+  margin-bottom: 35px;
+  transition: transform 0.1s ease;
+  text-shadow: 0 0 20px rgb(143 143 143 / 0.52);
+}
+
+/* Eingabe feld */
+.eingabe-bereich {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 35px;
+  width: 100%;
+}
 
 
+.eingabe-bereich input {
+  width: 100px;
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #444e69;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.eingabe-bereich input:focus {
+  box-shadow: 0 0 0 3px rgba(49, 60, 72, 0.1);
+}
+
+
+.bis-text {
+  color: #4d5469;
+  font-size: 15px;
+  font-weight: 520;
+}
+
+
+.generator-btn {
+  width: 100%;
+  max-width: 260px;
+  padding: 14px 28px;
+  background: #444e69;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.generator-btn:hover {
+  background: #556382;
+}
+
+.generator-btn:active {
+  transform: scale(0.97);
+}
+
+/* Standard-Pfeile der Inputs entfernen */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ENDEEEEEEEEEEEEEEEEEEE XXXXXXXXXX NUMBER GENERATOR CSS XXXXXXXXXX ENDEEEEEEEEEEEEEEEEEEE*/
