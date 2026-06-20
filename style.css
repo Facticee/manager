@@ -4,39 +4,46 @@
   box-sizing: border-box;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 15px;
-  margin-bottom: 25px;
-  border-bottom: 1px solid #09081f;
-}
-
-h1 {
-  font-size: 25px;
-  color: white;
-}
-
-
-
 
 body {
   background: linear-gradient(180deg, #313C48, #313C48); /*(180deg, #533cd8, #e7e0ff);          313C48           283842       */
-  color: #1e252c;
-  font-family: monospace;
+  font-family: Segoe UI, serif;
   min-height: 100vh;
   padding: 40px 20px;
   display: flex;
   justify-content: center;
 }
 
-.container {
-  width: 100%;
-  max-width: 1100px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 42px;
+  border-bottom: 1px solid #4A5568; /* rgba(255, 255, 255, 0.2) #515c6e */
+}
+
+header h1 {
+  font-size: 50px;
+  color: white;
+  font-weight: bolder;
 }
 
 
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  color: white;
+}
+
+
+/* Für die themen Überschriften */
+.container h3 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
 
 
 /* GRID */
@@ -47,12 +54,10 @@ body {
 }
 
 
-
-
 /* CARD */
 .card {
   background: #F8F9FA; /* 2a3447 mit hellerem hintergrund auch nice*/
-  
+  color: #ffffff;
   border-radius: 12.5px;
   
   padding: 20px;
@@ -64,8 +69,7 @@ body {
 .card:hover {
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.3); 
-  box-shadow: 0 10px 15px #505e6e69; 
-  
+  box-shadow: 0 10px 15px #505e6e69;
 }
 
 
@@ -73,32 +77,21 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
+
 }
 
 .card h2 {
-  font-size: 16px;
+  font-size: 22px;
+  color: #3a4259;
+  font-weight: 720;
 }
 
 .card p {
-  color: white;
+  color: #4d5469;
   font-size: 13.5px;
   margin-bottom: 14px;
-  line-height: 1.4;
+  font-weight: 520;
 }
-
-
-.card-links {
-  display: flex;
-  gap: 8px;
-}
-
-
-
-
-
-
-
-
 
 
 
@@ -117,3 +110,8 @@ body {
   border-color: aqua;
   color: white;
 }
+
+
+
+
+
