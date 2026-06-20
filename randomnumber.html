@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Utility Tools</title>
+</head>
+<body>
+<div class="container">
+    <a href="index.html"><header><h1>Utility Tools - Random Number</h1></header></a>
+
+    <div class="generator-box">
+        <h2>Random Number Generator</h2>
+
+        <div class="zahl-display" id="random-number">50</div>
+
+        <div class="eingabe-bereich">
+            <input type="number" id="min-number" value="1" placeholder="Min">
+            <span class="bis-text">to</span>
+            <input type="number" id="max-number" value="100" placeholder="Max">
+        </div>
+
+        <button class="generator-btn" onclick="generateRandomNumber()">Generieren</button>
+    </div>
+</div>
+
+<script>
+    function generateRandomNumber() {
+        const min = parseInt(document.getElementById('min-number').value);
+        const max = parseInt(document.getElementById('max-number').value);
+        const output = document.getElementById('random-number');
+
+
+        // damit nicht die zahlen nicht eingebundne sind wenn groß zuerst
+        if (isNaN(min) || isNaN(max) || min > max) {
+            output.innerText = "!";
+            return;
+        }
+
+        // math floor -> abrunden, math random zwischen max - min + 1, + min damit verschoven wird undn icht immer 0 bis mögliche zahlen ist
+        const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        // animation für zahlen
+        output.style.transform = 'scale(0.85)';
+        setTimeout(() => {
+            output.innerText = randomNum;
+            output.style.transform = 'scale(1)';
+        }, 100);
+    }
+</script>
+</body>
+</html>
