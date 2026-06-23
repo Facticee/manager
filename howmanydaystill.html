@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Utility Tools - How many Days till?</title>
+
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html"><header><h1>Utility Tools - How many Days till?</h1></header></a>
+
+    <div class="days-box">
+        <h2>How many Days till?</h2>
+
+        <div class="countdown-result-box">
+            <span class="countdown-days" id="countdown-days">0</span>
+            <span class="countdown-details" id="countdown-details">Select a date</span>
+        </div>
+
+        <div class="eingabe-bereich">
+            <input class="countdown-date-input" type="date" id="target-date">
+        </div>
+
+        <button class="generator-btn" onclick="calculateCountdown()">Calculate</button>
+    </div>
+</div>
+
+<script>
+    const targetDateInput = document.getElementById("target-date");
+    const countdownDays = document.getElementById("countdown-days");
+    const countdownDetails = document.getElementById("countdown-details");
+
+    function calculateCountdown() {
+        if (!targetDateInput.value) {
+            countdownDays.innerText = "!";
+            countdownDetails.innerText = "Please select a valid date";
+            return;
+        }
+
+        // das immer bis 0 Uhr geht
+        const targetDate = new Date(targetDateInput.value + "T00:00:00");
+        const now = new Date();
+        const difference = targetDate.getTime() - now.getTime();
+
+        if (difference < 0) {
+            countdownDays.innerText = "0";
+            countdownDetails.innerText = "This date is already in the past";
+            return;
+        }
+
+        const totalMinutes = Math.floor(difference / 60000);
+        const days = Math.floor(totalMinutes / 1440);
+        const hours = Math.floor((totalMinutes % 1440) / 60);
+        const minutes = totalMinutes % 60;
+
+        countdownDays.style.transform = "scale(0.9)";
+        setTimeout(() => {
+            countdownDays.innerText = days;
+            countdownDetails.innerText = `${days} days, ${hours} hours and ${minutes} minutes`;
+            countdownDays.style.transform = "scale(1)";
+        }, 100);
+    }
+
+    targetDateInput.addEventListener("change", calculateCountdown);
+</script>
+
+</body>
+</html>

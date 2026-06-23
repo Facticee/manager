@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Utility Tools - Coin Flip</title>
+
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html"><header><h1>Utility Tools - Coin Flip</h1></header></a>
+
+    <div class="coin-box">
+        <h2>Minimalist Coin Flip</h2>
+
+        <div class="coin">
+            <div class="coin-face" id="coin-face">?</div>
+        </div>
+
+        <div class="coin-result" id="coin-result">Ready</div>
+
+        <button class="generator-btn" onclick="flipCoin()">Throw</button>
+    </div>
+</div>
+
+
+<script>
+    const coinFace = document.getElementById("coin-face");
+    const coinResult = document.getElementById("coin-result");
+    let isFlipping = false;
+
+    function flipCoin() {
+        if (isFlipping) return;
+        isFlipping = true;
+
+        coinResult.innerText = "Throwing...";
+        coinFace.classList.remove("coin-bounce");
+        coinFace.classList.add("coin-spin");
+
+        setTimeout(() => {
+            const result = Math.random() < 0.5 ? "Heads" : "Tails";
+
+            coinFace.classList.remove("coin-spin");
+            coinFace.innerText = result === "Heads" ? "K" : "Z";
+            coinFace.classList.add("coin-bounce");
+            coinResult.innerText = result;
+            isFlipping = false;
+        }, 900);
+    }
+</script>
+</body>
+</html>
