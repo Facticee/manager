@@ -2,7 +2,7 @@
 
 A collection of simple utility tools built into a single website. I though of some easy useful features i use pretty often and I put them all in one place with a minimalist design.
 
-**Test it out under: https://utilies-tool.vercel.app/**
+**Test it out under: https://utilies-tool.vercel.app  or  https://manager-factice.vercel.app**
 
 ### Features
 **1. Category - Chance and Decisions**
