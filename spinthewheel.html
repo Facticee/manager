@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Tools - Spin Wheel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <a href="index.html">
+        <header>
+            <h1>Utility Tools - Spin Wheel</h1>
+        </header>
+    </a>
+
+    <div class="wheel-box">
+        <h2>Spin The Wheel</h2>
+        <div class="option-input-area">
+            <input type="text" id="option-input" placeholder="Neue Option">
+            <button class="add-option-btn" onclick="addOption()">
+                Hinzufügen
+            </button>
+
+        </div>
+
+        <div id="option-list" class="option-list"></div>
+        <div class="wheel-container">
+            <div id="wheel-track" class="wheel-track">
+            </div>
+        </div>
+        <button class="generator-btn" onclick="spinWheel()">
+            Drehen
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    const optionList = document.getElementById("option-list");
+    const wheelTrack = document.getElementById("wheel-track");
+    const input = document.getElementById("option-input");
+
+    let options = ["Pizza", "Burger"];
+    isSpinning = false;
+
+    function updateUI() {
+        optionList.innerHTML = options.map((opt, i) => `
+        <div class="option-item">${opt}<button onclick="removeOption(${i})">✕</button></div>
+    `).join("");
+
+        wheelTrack.innerHTML = options.length ? Array(20).fill(options).flat().map(opt => `<div class="wheel-item">${opt}</div>`).join("") : "";
+        updateActiveItem();
+    }
+
+    function addOption() {
+        if (!input.value.trim()) return;
+        options.push(input.value.trim());
+        input.value = "";
+        updateUI();
+    }
+
+    function removeOption(index) {
+        options.splice(index, 1);
+        updateUI();
+    }
+
+    function updateActiveItem() {
+        const itemHeight = 70;
+        const center = 105;
+        const maxDistance = 75;
+
+        const translateY = new DOMMatrix(
+            getComputedStyle(wheelTrack).transform
+        ).f;
+
+        const trackCenter = center - translateY;
+
+        document.querySelectorAll(".wheel-item").forEach((item, index) => {
+            const itemCenter = index * itemHeight + itemHeight / 2;
+            const distance = Math.abs(trackCenter - itemCenter);
+
+            const factor = Math.max(0, 1 - distance / maxDistance);
+
+            item.style.transform = `scale(${1 + factor * 0.3})`;
+            item.style.opacity = 0.4 + factor * 0.6;
+            item.style.color = distance < itemHeight / 2
+                ? "#444e69"
+                : "#627288";
+        });
+    }
+
+    function spinWheel() {
+        if (options.length < 2) return;
+        isSpinning = true;
+
+        const randomIndex = Math.floor(Math.random() * options.length);
+        const rounds = 10;
+        const itemHeight = 70;
+        const translateY = (rounds * options.length + randomIndex - 1) * itemHeight;
+
+        wheelTrack.style.transition = "none";
+        wheelTrack.style.transform = "translateY(0px)";
+        wheelTrack.offsetHeight;
+
+        const loop = () => {
+            updateActiveItem();
+            if (isSpinning) requestAnimationFrame(loop);
+        };
+        requestAnimationFrame(loop);
+
+        wheelTrack.style.transition = "transform 5.5s cubic-bezier(.15,.85,.2,1)"; // i dont really understand this cubic bezier. i got this with my guy gemini
+        wheelTrack.style.transform = `translateY(-${translateY}px)`;
+
+        setTimeout(() => {
+            isSpinning = false;
+            updateActiveItem();
+        }, 5500);
+    }
+
+    updateUI();
+
+</script>
+
+</body>
+</html>

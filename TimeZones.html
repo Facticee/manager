@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Tools - Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="wide-container">
+    <a href="index.html">
+        <header>
+            <h1>Utility Tools - World Time</h1>
+        </header>
+    </a>
+
+    <h3>Local</h3>
+
+    <div class="clock-grid">
+
+        <div class="clock-box"> <div class="local-time-text">Local Time</div>
+            <div id="live-uhr" class="local-clock">12:34:56</div>
+        </div>
+
+    </div>
+
+    <h3>Europe</h3>
+
+    <div class="clock-grid">
+
+        <div class="clock-box"> <div class="local-time-text">Germany / Central</div>
+            <div id="deutschland-uhr" class="local-clock">00:00:00</div>
+        </div>
+        <div class="clock-box"> <div class="local-time-text">England / Western</div>
+            <div id="uk-uhr" class="local-clock">00:00:00</div>
+        </div>
+
+        <div class="clock-box"> <div class="local-time-text">Greece / Eastern</div>
+            <div id="greece-uhr" class="local-clock">00:00:00</div>
+        </div>
+
+    </div>
+
+    <h3>America</h3>
+
+    <div class="clock-grid">
+
+        <div class="clock-box"> <div class="local-time-text">USA / Pacific - LA</div>
+            <div id="LA-uhr" class="local-clock">00:00:00</div>
+        </div>
+        <div class="clock-box"> <div class="local-time-text">USA / Central - CHI</div>
+            <div id="Chicago-uhr" class="local-clock">00:00:00</div>
+        </div>
+
+        <div class="clock-box"> <div class="local-time-text">USA / Eastern - NY</div>
+            <div id="NewYork-uhr" class="local-clock">00:00:00</div>
+        </div>
+
+
+        <div class="clock-box"> <div class="local-time-text">CANADA / Pacific - VAN</div>
+            <div id="Toronto-uhr" class="local-clock">00:00:00</div>
+        </div>
+
+        <div class="clock-box"> <div class="local-time-text">CANADA / Eastern - TO</div>
+            <div id="Vancouver-uhr" class="local-clock">00:00:00</div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+<script>
+    function updateClock() {
+        const now = new Date();
+
+        // Formatiert die Zeit automatisch passend (z. B. "14:30:05")
+        document.getElementById('live-uhr').textContent = now.toLocaleTimeString();
+        document.getElementById('deutschland-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'Europe/Berlin' });
+        document.getElementById('uk-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'Europe/London' });
+        document.getElementById('greece-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'Europe/Athens' });
+
+        document.getElementById('NewYork-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'America/New_York' });
+        document.getElementById('LA-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'America/Los_Angeles' });
+        document.getElementById('Chicago-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'America/Chicago' });
+
+        document.getElementById('Vancouver-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'America/Vancouver' });
+        document.getElementById('Toronto-uhr').textContent = now.toLocaleTimeString(undefined, { timeZone: 'America/Toronto' });
+
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
+
+
+</body>
+</html>

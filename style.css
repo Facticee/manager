@@ -57,6 +57,7 @@ header h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
+
 }
 
 
@@ -151,7 +152,7 @@ header h1 {
   line-height: 1;
   margin-bottom: 35px;
   transition: transform 0.1s ease;
-  text-shadow: 0 0 20px rgb(143 143 143 / 0.52);
+  text-shadow: 0 0 20px rgb(143 143 143 / 0.47);
 }
 
 /* Eingabe feld */
@@ -319,7 +320,7 @@ input[type="number"] {
   }
 }
 
-/* ENDEEEEEEEEEEEEEEEEEEEEE XXXXXXXXXX COIN FLIP XXXXXXXXXX */
+/* ENDEEEEEEEEEEEEEEEEEEEEE XXXXXXXXXX COIN FLIP XXXXXXXXXX ENDEEEEEEEEEEEEEEEEEEEEE */
 
 
 
@@ -380,7 +381,234 @@ input[type="number"] {
 .countdown-date-input {
   width: 180px !important;
 }
-/* XXXXXXXXXX how many days till XXXXXXXXXX */
+/* ENDEEEEEEEEEEEEEEEEEEEEE XXXXXXXXXX how many days till XXXXXXXXXX ENDEEEEEEEEEEEEEEEEEEEEE */
+
+
+
+
+
+
+
+
+
+
+
+/* XXXXXXXXXX SPIN WHEEL XXXXXXXXXX */
+
+.wheel-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 650px;
+  margin: auto;
+  padding: 40px;
+  background: #F8F9FA;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px #00000026;
+
+}
+
+.wheel-box h2 {
+  font-size: 22px;
+  color: #444e69;
+  margin-bottom: 25px;
+}
+
+.option-input-area {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.option-input-area input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.add-option-btn {
+  padding: 12px 18px;
+  background: #444e69;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.option-list {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.option-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: white;
+  color: #444e69;
+  font-weight: 600;
+}
+
+.option-item button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+
+
+
+
+.wheel-container {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 210px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: white;
+  margin-bottom: 30px;
+  border: 1px solid #e2e8f0;
+}
+
+/* dunkler Verlauf oben */
+.wheel-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(to bottom, #f8f9fa, transparent);
+
+  z-index: 5;
+}
+
+/* dunkler Verlauf unten */
+.wheel-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(
+          to top,
+          #f8f9fa,
+          transparent
+  );
+  z-index: 5;
+}
+
+
+
+
+
+.wheel-item {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  transition: color 0.2s ease; /* farben wechsel fade */
+}
+
+/* ENDEEEEEEEEEEEEEEEEEEEEE XXXXXXXXXX SPIN WHEEL XXXXXXXXXX ENDEEEEEEEEEEEEEEEEEEEEE */
+
+
+
+/* TIMEZONE UND REALTIMECLOCK */
+
+
+.local-clock {
+  font-size: 110px;
+  font-weight: 750;
+  color: #444e69;
+  line-height: 1;
+  margin-bottom: 35px;
+  transition: transform 0.1s ease;
+  text-shadow: 0 0 20px rgb(143 143 143 / 0.52);
+}
+
+.local-time-text {
+  font-size: 30px;
+  font-weight: 450;
+  color: #444e69;
+}
+
+.clock-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 30px 20px;
+  background: #F8F9FA;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px #00000026;
+  text-align: center;
+}
+
+
+.clock-box .local-clock {
+  font-size: clamp(40px, 14vw, 75px);
+  font-weight: 750;
+  color: #444e69;
+  line-height: 1.1;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgb(143 143 143 / 0.3);
+}
+
+.clock-box .local-time-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #4d5469;
+}
+
+.clock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+
+}
+
+
+.wide-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  color: white;
+}
+
+.wide-container h3 {
+  font-size: 45px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  margin-left: 13px;
+  margin-top: 60px
+}
+
+
+/* ENDEEEEEEEEEEEEEEEEEEEEE TIMEZONE UND REALTIMECLOCK ENDEEEEEEEEEEEEEEEEEEEEE */
+
+
+
+
+
+
 
 
 

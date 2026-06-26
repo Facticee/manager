@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Tools - Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<div class="container">
+
+    <a href="index.html">
+        <header>
+            <h1>Utility Tools - Local Time</h1>
+        </header>
+    </a>
+
+    <div class="wheel-box"> <!--  same box here as wheel-box cause the size should look similar   -->
+        <div class="local-time-text">Local Time</div>
+            <div id="live-uhr" class="local-clock"></div>
+        </div>
+</div>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+
+        // Formatiert die Zeit automatisch passend (z. B. "14:30:05")
+        document.getElementById('live-uhr').textContent = now.toLocaleTimeString();
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
+
+
+</body>
+</html>

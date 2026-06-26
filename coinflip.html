@@ -14,7 +14,7 @@
     <a href="index.html"><header><h1>Utility Tools - Coin Flip</h1></header></a>
 
     <div class="coin-box">
-        <h2>Minimalist Coin Flip</h2>
+        <h2>Coin Flip</h2>
 
         <div class="coin">
             <div class="coin-face" id="coin-face">?</div>
@@ -44,7 +44,7 @@
             const result = Math.random() < 0.5 ? "Heads" : "Tails";
 
             coinFace.classList.remove("coin-spin");
-            coinFace.innerText = result === "Heads" ? "K" : "Z";
+            coinFace.innerText = result === "Heads" ? "H" : "T";
             coinFace.classList.add("coin-bounce");
             coinResult.innerText = result;
             isFlipping = false;

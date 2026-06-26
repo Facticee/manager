@@ -38,7 +38,7 @@
             return;
         }
 
-        // math floor -> abrunden, math random zwischen max - min + 1, + min damit verschoven wird undn icht immer 0 bis mögliche zahlen ist
+        // math floor rundet immer ab, math random zwischen max - min + 1, ..... + min damit verschoven wird undn icht immer 0 bis mögliche zahlen ist
         const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
         // animation für zahlen
